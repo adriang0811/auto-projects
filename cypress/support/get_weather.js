@@ -4,10 +4,9 @@ Cypress.Commands.add('getWeather', () => {
         url: 'http://api.weatherapi.com/v1/current.json?key=9bb5930dbe9549bc96f172944242201&q=Bucharest&aqi=yes',
         failOnStatusCode: false
     }).then((response) => {
-        cy.log("status: " + response.status)
-        cy.log(JSON.stringify(response.body))
+        // cy.log("status: " + response.status)
+        // cy.log(JSON.stringify(response.body))
         expect(response.body.current).to.have.property("temp_c")
-        let body = JSON.parse(JSON.stringify(response.body))
-        return cy.wrap(response.body)
+        return cy.wrap(response)
     })
 })
